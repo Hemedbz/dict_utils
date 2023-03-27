@@ -1,0 +1,8 @@
+[{"State": "New York",
+  "Cities": ["New York", "Albeny", "New Platz"],
+  "Rivers": ["Swan River", "Hudson River", "Newtown Creek"]},
+  {"State": "Illinois",
+    "Cities": ["Chicago", "Springfield", "New Lenox", "Normal"],
+    "Rivers": ["Cache River", "Kankakee River"]},
+  {"State": "California",
+  "cities":  "San Fransisco"}]
