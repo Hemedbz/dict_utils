@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from main import search
 import json
 
@@ -6,7 +8,7 @@ if __name__ == '__main__':
 
     with open("example.json", "r") as fh:
         my_array = json.load(fh)
-    print(search(my_array, "New"))
+    pprint(search(my_array, "New"))
 
     # # desired outcome:
     # result = [
@@ -23,6 +25,6 @@ if __name__ == '__main__':
 
     my_l = [1, 2, 3, [1, 2, 3], 5]
     print(search(my_l, 2))
-
+    #
     my_dict = {1:"old", 2:"new", 3:"borrowed", 4:"blue"}
     print(search(my_dict, 3))
