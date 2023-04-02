@@ -27,9 +27,10 @@ def search_list(data_list, query):
         if isinstance(item, (list, dict)):
             sublist_findings = search(item, query)
             if sublist_findings:
-                findings.append([{i: sublist_findings}])
-        elif isinstance(item, str) and query.lower() in item.lower():
-            findings.append(item)
+                findings.append({f"index[{i}]": sublist_findings})
+        elif isinstance(query, str) and query.lower() in item.lower() or \
+                isinstance(query, int) and query == item:
+            findings.append({f"index[{i}]": item})
     return findings
 
 def search_dict(data_dict, query):
@@ -39,7 +40,9 @@ def search_dict(data_dict, query):
             sublist_findings = search(value, query)
             if sublist_findings:
                 findings.append({key: sublist_findings})
-        elif isinstance(value, str) and query.lower() in value.lower():
+        elif (isinstance(query, str) and query.lower() in value.lower() or
+              isinstance(key, str) and query.lower() in key.lower()) or \
+                (isinstance(query, int) and query == value or isinstance(key, int) and query == key):
             findings.append({key: value})
     return findings
 
